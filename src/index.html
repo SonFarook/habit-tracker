@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./output.css" />
+  </head>
+  <body class="dark:bg-slate-800">
+    <!-- Main Container -->
+    <div class="flex flex-col gap-4 items-center relative h-screen">
+      <!-- Header-->
+      <h1
+        class="font-bold text-5xl bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text dark:from-purple-300 dark:to-indigo-300 text-transparent mt-8"
+      >
+        Habit Tracker
+      </h1>
+      <!-- Date-->
+      <h2
+        class="date font-bold text-4xl bg-gradient-to-r from-sky-500 to-emerald-500 bg-clip-text dark:from-sky-300 dark:to-emerald-300 text-transparent"
+      >
+        13.07.2025
+      </h2>
+      <!-- Progress Text-->
+      <p class="progress text-orange-400 dark:text-orange-200 text-3xl">
+        0% finished
+      </p>
+      <!-- Habit list-->
+      <ul
+        class="habitList flex flex-col gap-2 text-xl w-full justify-around md:max-w-[500px] dark:text-white"
+      ></ul>
+      <div class="flex gap-2 fixed bottom-5 left-5">
+        <!-- Dark Mode Button -->
+        <button
+          class="darkMode rounded-full bg-amber-100 dark:bg-indigo-900 w-16 h-16 shadow-xl hover:cursor-pointer hover:scale-105 duration-300 active:scale-90 content-center flex justify-center items-center"
+        >
+          <img
+            src="img/moon.png"
+            alt="moon"
+            class="h-12 w-12 block dark:hidden"
+          />
+          <img
+            src="img/sun.png"
+            alt="moon"
+            class="h-12 w-12 hidden dark:block"
+          />
+        </button>
+        <!-- Add Habit Button -->
+        <button
+          class="add rounded-full bg-blue-500 dark:bg-indigo-800 w-16 h-16 shadow-xl hover:cursor-pointer hover:scale-105 duration-300 active:scale-90 content-center flex justify-center items-center"
+        >
+          <img src="img/plus.png" alt="plus" class="h-12 w-12" />
+        </button>
+      </div>
+      <!-- Modal Window-->
+      <div
+        class="modal absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[200px] flex flex-col items-center justify-center p-8 gap-4 bg-white dark:bg-slate-800 dark:border-white border border-black shadow-xl rounded-lg z-10 opacity-0 transition-opacity duration-500"
+      >
+        <!-- Header -->
+        <h1 class="text-2xl font-bold dark:text-white">Add Habit</h1>
+        <div class="flex flex-col items-center">
+          <!-- Textfield -->
+          <input
+            type="text"
+            id="habitName"
+            maxlength="25"
+            placeholder="Habit name"
+            class="border border-black p-1 rounded-md focus:outline-blue-500 dark:border-white dark:text-white dark:focus:outline-indigo-800"
+          />
+          <!-- Error text -->
+          <p class="error text-sm text-red-500 mt-0.5 collapse">
+            Habit name can't be empty!
+          </p>
+        </div>
+        <!-- Submit Button -->
+        <button
+          class="createHabit px-12 py-2 bg-blue-500 text-white dark:bg-indigo-800 font-bold rounded-3xl hover:cursor-pointer hover:scale-105 active:scale-95 duration-300"
+        >
+          Submit
+        </button>
+        <!-- Close Button -->
+        <button
+          class="close absolute top-2 right-1 fill-black dark:fill-white flex items-center justify-center hover:cursor-pointer"
+        >
+          <svg class="w-8 h-8" viewBox="0 0 1000 1000">
+            <path
+              d="M112 688 c-10 -10 16 -41 125 -150 l138 -138 -138 -138 c-109 -109
+              -135 -140 -125 -150 10 -10 41 16 150 125 l138 138 138 -138 c109 -109 140
+              -135 150 -125 10 10 -16 41 -125 150 l-138 138 138 138 c109 109 135 140 125
+              150 -10 10 -41 -16 -150 -125 l-138 -138 -138 138 c-109 109 -140 135 -150
+              125z"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <div
+      class="overlay absolute top-0 left-0 w-full h-screen backdrop-blur-xs z-5 bg-black/5 hidden"
+    ></div>
+    <script src="script.js"></script>
+  </body>
+</html>
